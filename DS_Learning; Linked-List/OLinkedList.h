@@ -46,14 +46,14 @@ void ListInsert(List *plist, DATA data) {
     plist->tail->next = newNode;
     plist->tail = newNode;
   }
-  plist->numData++;
+  (plist->numData)++;
 }
 
 // 첫 번째 데이터를 읽어오는 함수. 성공시 True를 반환하고, pdata에 데이터를 저장.
-int ListFirst(List *plist, DATA *pdata)
-{
-  if(plist->tail == NULL)
-  { return false; }
+int ListFirst(List *plist, DATA *pdata) {
+  if(plist->tail == NULL) {
+    return false;
+  }
   plist->before = plist-> tail;
   plist->cur = plist->tail->next;
   *pdata = plist->cur->data;
@@ -61,8 +61,7 @@ int ListFirst(List *plist, DATA *pdata)
 }
 
 // 현재 위치에서 다음 데이터를 읽어오는 함수.
-int ListNext(List *plist, DATA *pdata)
-{
+int ListNext(List *plist, DATA *pdata) {
   if(plist->tail == NULL) {
     return false;
   }
@@ -86,7 +85,7 @@ DATA ListRemove(List *plist) {
   plist->before->next = plist->cur->next;
   plist->cur = plist->before;
   free(rpos);
-  plist->numData--;
+  (plist->numData)--;
   return rdata;
 }
 
